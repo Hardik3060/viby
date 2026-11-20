@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* ───────────────────────── Soft Lilac design system ───────────────────────── */
+@theme {
+  /* Bubblegum-pink-on-white brand identity. #FF6FB5 is the signature.
+     (Token names keep the `lavender`/`lilac` keys so every component picks
+      up the new palette without renaming — values are now pink.) */
+  --color-cream: #fff8fb;        /* soft blush-white background */
+  --color-cream-2: #ffeff7;
+  --color-lavender: #ff6fb5;     /* ★ BRAND bubblegum pink — dominant color */
+  --color-lavender-2: #ff8fc8;   /* soft pink (mid) */
+  --color-lavender-3: #e0388a;   /* deep pink for text/icons on white */
+  --color-blush: #ffc7e7;        /* cotton candy accent */
+  --color-blush-2: #ff4fa3;      /* deep pink accent */
+  --color-powder: #ffd9ec;       /* soft pink accent */
+  --color-powder-2: #e0388a;
+  --color-lilac: #ffe3f1;        /* light pink surface / chip fill */
+  --color-mint: #ffe0ef;         /* soft pink accent */
+  --color-ink: #2e2a3a;
+  --color-ink-soft: #6b6580;
+  --color-ink-faint: #b0a6b0;
+
+  --font-display: var(--font-display), "Sora", system-ui, sans-serif;
+  --font-sans: var(--font-sans), "Inter", system-ui, sans-serif;
+
+  --radius-card: 28px;
+  --radius-sheet: 32px;
+
+  --shadow-soft: 0 18px 50px -18px rgba(255, 111, 181, 0.4);
+  --shadow-soft-lg: 0 30px 80px -24px rgba(255, 111, 181, 0.48);
+  --shadow-blush: 0 18px 50px -18px rgba(255, 79, 163, 0.4);
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-breathe: breathe 2.4s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-22px) translateX(10px) scale(1.05); }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+html { color-scheme: light; }
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hide scrollbars but keep scroll */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Signature bubblegum-pink-on-white surfaces */
+.bg-aurora {
+  background:
+    radial-gradient(120% 80% at 12% 0%, #ffe1f0 0%, transparent 55%),
+    radial-gradient(115% 85% at 90% 6%, #ffe9f3 0%, transparent 52%),
+    radial-gradient(135% 95% at 50% 100%, #ffdeed 0%, transparent 55%),
+    radial-gradient(90% 60% at 85% 100%, #fff0f6 0%, transparent 45%),
+    var(--color-cream);
+}
+.gradient-lilac {
+  background: linear-gradient(135deg, #ffe3f1 0%, #fff0f7 50%, #ffd9ec 100%);
+}
+.gradient-primary {
+  background: linear-gradient(135deg, #ff8fc6 0%, #ff6fb5 56%, #ff4fa3 120%);
+}
+.text-gradient {
+  background: linear-gradient(120deg, #ff4fa3 0%, #ff85c1 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+.glass-deep {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Shimmer skeleton */
+.shimmer {
+  background: linear-gradient(90deg, #ffe6f2 25%, #fff2f8 50%, #ffe6f2 75%);
+  background-size: 800px 100%;
+  animation: var(--animate-shimmer);
+}
